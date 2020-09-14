@@ -18,8 +18,10 @@ int main()
 {
     int arr[] = {12, 34, 10, 6, 40};   //predefined array
     int n = sizeof(arr) / sizeof(arr[0]); 
-    // Using a last element as search element 
-    int key = 5;    //predefined element
+    // Using a last element as search element
+    //cout<<"enter the value yuo want t osearch "<<endl; 
+    // cin >> key>> endl;
+    int key = 5;    //any predefined value you want to search
     int position = findElement(arr, n, key); 
   
     if (position == - 1) 
