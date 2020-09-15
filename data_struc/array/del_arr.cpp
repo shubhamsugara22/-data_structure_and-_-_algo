@@ -2,6 +2,7 @@
 #include<conio.h>
 // C++ program to implement delete operation in a sorted array 
 using namespace std; 
+int binarySearch(int arr[], int low, int high, int key);
 
 /* Function to delete an element */
 int deleteElement(int arr[], int n, int key) 
@@ -54,14 +55,14 @@ int main()
 	cout << "Array before deletion\n"; 
 	for (i = 0; i < n; i++) 
 	{
-        cout << arr[i] << " "; 
+        cout << arr[i] << " "<<endl; 
     }
 	n = deleteElement(arr, n, key); 
 
 	cout << "\n\nArray after deletion\n"; 
 	for (i = 0; i < n; i++)
     { 
-		cout << arr[i] << " ";
+		cout << arr[i] << " "<<endl;
     } 
     return 0;
 } 
