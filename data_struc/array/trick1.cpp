@@ -1,10 +1,9 @@
 //Write a program that, given an array A[] of n numbers and another number x, determines whether or not there exist two elements in S whose sum is exactly x. 
 
-// C++ program to check if given array 
-// has 2 elements whose sum is equal 
-// to the given value 
+
 
 #include <bits/stdc++.h> 
+#include<conio.h>
 using namespace std; 
 
 // Function to check if array has 2 elements 
@@ -51,3 +50,4 @@ int main()
 	}
 return 0; 
 } 
+git pus
