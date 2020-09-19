@@ -1,14 +1,11 @@
 //Write a program that, given an array A[] of n numbers and another number x, determines whether or not there exist two elements in S whose sum is exactly x. 
-
-
-
 #include <bits/stdc++.h> 
 #include<conio.h>
 using namespace std; 
 
 // Function to check if array has 2 elements 
 // whose sum is equal to the given value 
-bool hasArrayTwoCandidates(int A[], int arr_size, int sum) 
+int  hasArrayTwoCandidates(int A[], int arr_size, int sum) 
 { 
 	int l, r; 
 
@@ -20,16 +17,20 @@ bool hasArrayTwoCandidates(int A[], int arr_size, int sum)
 	the sorted array*/
 	l = 0; 
 	r = arr_size - 1; 
-	while (l < r) { 
-		if (A[l] + A[r] == sum){
+	while (l < r) 
+	{ 
+		if (A[l] + A[r] == sum)
+		{
  			return 1;
-                 }
-		else if(A[l] + A[r] < sum){ 
+        }
+		else if(A[l] + A[r] < sum)
+		{ 
 			l++; 
-                 }
-		else ( A[i] + A[j] > sum ){
+		}
+		else if ( A[l] + A[r] > sum)
+		{
 			r--; 
-                 }
+        }
 	} 
 	return 0; 
 } 
@@ -41,12 +42,13 @@ int main()
 	int arr_size = sizeof(A) / sizeof(A[0]); 
 
 	// Function calling 
-	if (hasArrayTwoCandidates(A, arr_size, n)) {
-		cout << "Array has two elements"
-				" with given sum";
-           } 
-	else{
-		cout << "Array doesn't have two" " elements with given sum"; 
+	if (hasArrayTwoCandidates(A, arr_size, n)) 
+	{
+		cout << "Array has two elements with given sum";
+    } 
+	else
+	{
+		cout << "Array doesn't have two elements with given sum"; 
 	}
 return 0; 
 } 
