@@ -25,9 +25,12 @@ int main()
     int position = findElement(arr, n, key); 
   
     if (position == - 1) 
-        cout << "Element not found"; 
+    {
+    cout << "Element not found";
+    } 
     else
-        cout << "Element Found at Position: " 
-             << position + 1;
+    {
+    cout << "Element Found at Position: " << position + 1;
+    }    
     return 0;
 } 
