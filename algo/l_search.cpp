@@ -8,13 +8,10 @@ int search(int arr[], int n, int x)
     {
         if (arr[i] == x) 
         {
-            return i; 
-        }
-        else
-        {
-         return -1;   
-        }
-    } 
+        return i; 
+        } 
+    }
+    return -1;    
 } 
   
 int main(void) 
