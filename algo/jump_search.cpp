@@ -19,15 +19,11 @@ int jumpSearch(int arr[], int x, int n)
         { 
             return -1; 
         }
-    } 
-
-  
-    // Doing a linear search for x in block 
-    // beginning with prev. 
+    }  
+// Doing a linear search for x in block 
     while (arr[prev] < x) 
     { 
         prev++; 
-  
         // If we reached next block or end of 
         // array, element is not present. 
         if (prev == min(step, n))
@@ -42,8 +38,6 @@ int jumpSearch(int arr[], int x, int n)
     }
     return -1; 
 } 
-  
-// Driver program to test function 
 int main() 
 { 
     int arr[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 
