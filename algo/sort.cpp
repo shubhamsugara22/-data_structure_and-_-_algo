@@ -10,38 +10,40 @@ void swap(int *xp, int *yp)
   
 void selectionSort(int arr[], int n)  
 {  
-    int i, j, min_idx;  
+    int i, j, i_min;  
   
     // One by one move boundary of unsorted subarray  
     for (i = 0; i < n-1; i++)  
-    {  
-        // Find the minimum element in unsorted array  
-        min_idx = i;  
+    {    
+        //i_min = i;  
         for (j = i+1; j < n; j++)
         {
-            if (arr[j] < arr[min_idx])
+            if (arr[j] < arr[i])
             {
-                min_idx = j;  
-        // Swap the found minimum element with the first element  
-                swap(&arr[min_idx], &arr[i]);
+                i_min = j;  
+                swap(&arr[i], &arr[i_min]);
             }  
         }
     }      
 }  
-  
-/* Function to print an array */
 void printArray(int arr[], int size)  
 {  
     int i;  
     for (i=0; i < size; i++)
     {  
-        cout << arr[i] << " ";  
-    cout << endl;
+        cout << arr[i] <<endl;
     }  
 }   
 //program to test above functions  
 int main()  
 {  
+    //cout<<"enter the  no . of element"<<endl;
+    //cin>>n;
+    //cout<<"entr the elements in array"<<endl;
+    //for(int i =0;i<n;i++)
+    //{
+       // cin>>a[i];
+    //}
     int arr[] = {64, 25, 12, 22, 11};  
     int n = sizeof(arr)/sizeof(arr[0]);  
     selectionSort(arr, n);  
