@@ -85,7 +85,7 @@ for (i = 0; i < size; i++)
 {
 	cout<< A[i] <<endl; 
 } 
-
+}
 /* Driver program to test above functions */
 int main() 
 { 
