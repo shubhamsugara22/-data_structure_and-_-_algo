@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-void lower(int matrix[3][3], int row, int col)
+void lower(int matrix[100][100], int row, int col)
 {
     int i, j;
     for (i = 0; i < row; i++)
@@ -20,7 +20,7 @@ void lower(int matrix[3][3], int row, int col)
     }
 }
 // Function to form upper triangular marix
-void upper(int matrix[3][3], int row, int col)
+void upper(int matrix[100][100], int row, int col)
 {
     int i, j;
 
