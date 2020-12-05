@@ -20,28 +20,38 @@ to make one big sorted list which
 is returned. */
 Node *SortedMerge(Node *a, Node *b)
 {
-    Node *result = NULL;
+    /* a dummy first node to hang the result on */
+    Node dummy;
 
-    /* Base cases */
-    if (a == NULL)
-        return (b);
-    else if (b == NULL)
-        return (a);
+    /* tail points to the last result node */
+    Node *tail = &dummy;
 
-    /* Pick either a or b, and recur */
-    if (a->data <= b->data)
+    /* so tail->next is the place to   
+    add new nodes to the result. */
+    dummy.next = NULL;
+    while (1)
     {
-        result = a;
-        result->next = SortedMerge(a->next, b);
+        if (a == NULL)
+        {
+            /* if either list runs out, use the  
+            other list */
+            tail->next = b;
+            break;
+        }
+        else if (b == NULL)
+        {
+            tail->next = a;
+            break;
+        }
+        if (a->data <= b->data)
+            MoveNode(&(tail->next), &a);
+        else
+            MoveNode(&(tail->next), &b);
+
+        tail = tail->next;
     }
-    else
-    {
-        result = b;
-        result->next = SortedMerge(a, b->next);
-    }
-    return (result);
+    return (dummy.next);
 }
-
 /* UTILITY FUNCTIONS */
 /* MoveNode() function takes the 
 node from the front of the source, 
