@@ -43,7 +43,7 @@ bool isDivisible(long long int n)
 int main()
 {
     long long int n = 123;
-
+    cin >> n;
     if (isDivisible(n))
         cout << "Yes";
     else
