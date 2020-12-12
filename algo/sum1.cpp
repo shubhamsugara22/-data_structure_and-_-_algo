@@ -32,3 +32,4 @@ int main()
     cout << digSum(n);
     return 0;
 }
+
