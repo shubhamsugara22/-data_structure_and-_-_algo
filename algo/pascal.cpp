@@ -40,5 +40,3 @@ int main()
     printPascal(n);
     return 0;
 }
-
-// This code is Contributed by Code_Mech.
