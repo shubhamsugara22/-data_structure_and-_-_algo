@@ -1,6 +1,8 @@
 // A simple CPP program to introduce
 // a linked list
-#include <bits/stdc++.h>
+#include <iostream.h>
+#include <conio.h>
+#include <stdio.h>
 using namespace std;
 class Node
 {
@@ -16,6 +18,29 @@ void push_start(Node **head_ref, int new_data)
 
 	new_node->next = (*head_ref);
 	(*head_ref) = new_node;
+}
+void end(Node **head_ref, int new_data)
+{
+	Node *new_node = new Node();
+	Node *last = *head_ref;
+
+	new_node->data = new_data;
+	new_node->next = NULL;
+
+	if(*head_ref==NULL{
+		*head_ref = new_node;
+	}
+	while (last->next!=NULL){
+		last = last->next;
+	}
+	last->next= new_node;
+	return;
+	{
+		/* code */
+	}
+}
+void print_list(Node *n)
+{
 }
 // Program to create a simple linked
 // list with 3 nodes
@@ -58,42 +83,33 @@ anything yet */
 	| 1 | o----->| # | # |	 | # | # | 
 	+---+---+	 +----+----+	 +-----+----+	 
 */
-
 	// assign data to second node
 	second->data = 2;
 	// Link second node with the third node
 	second->next = third;
-	/* data has been assigned to the data part of the second 
-	block (block pointed by second). And next 
-	pointer of the second block points to the third 
-	block. So all three blocks are linked. 
-
-	head		 second		 third 
-		|			 |			 | 
-		|			 |			 | 
-	+---+---+	 +---+---+	 +----+----+ 
-	| 1 | o----->| 2 | o-----> | # | # | 
-	+---+---+	 +---+---+	 +----+----+	 */
+	// head		 second		 third
+	// 	|			 |			 |
+	// 	|			 |			 |
+	// +---+---+	 +---+---+	 +----+----+
+	// | 1 | o----->| 2 | o-----> | # | # |
+	// +---+---+	 +---+---+	 +----+----+	 */
 	third->data = 3; // assign data to third node
 	third->next = NULL;
+	// We have the linked list ready.
 
-	/* data has been assigned to the data part of the third 
-	block (block pointed by third). And next pointer 
-	of the third block is made NULL to indicate 
-	that the linked list is terminated here. 
+	// 	head
+	// 		|
+	// 		|
+	// 	+---+---+	 +---+---+	 +----+------+
+	// 	| 1 | o----->| 2 | o-----> | 3 | NULL |
+	// 	+---+---+	 +---+---+	 +----+------+
 
-	We have the linked list ready. 
+	// Note that only the head is sufficient to represent
+	// the whole list. We can traverse the complete
+	// list by following the next pointers. */
 
-		head	 
-			| 
-			| 
-		+---+---+	 +---+---+	 +----+------+ 
-		| 1 | o----->| 2 | o-----> | 3 | NULL | 
-		+---+---+	 +---+---+	 +----+------+	 
-	
-	
-	Note that only the head is sufficient to represent 
-	the whole list. We can traverse the complete 
-	list by following the next pointers. */
+	push_start(&head, 6);
+	push_start(&head, 10);
+	end(&head, 4);
 	return 0;
 }
