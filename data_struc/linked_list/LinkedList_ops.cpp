@@ -1,5 +1,9 @@
-// A simple CPP program to introduce
-// a linked list
+// A Program to create  a simple linked list
+//Basic Operation
+// 1)Insertion
+//   insert node at end
+//   insert node at start
+// 2) transverse a Linked list
 #include <iostream.h>
 #include <conio.h>
 #include <stdio.h>
@@ -10,7 +14,7 @@ public:
 	int data;
 	Node *next;
 };
-// add new node at start
+//function to  add new node at start
 void push_start(Node **head_ref, int new_data)
 {
 	Node *new_node = new Node();
@@ -19,6 +23,7 @@ void push_start(Node **head_ref, int new_data)
 	new_node->next = (*head_ref);
 	(*head_ref) = new_node;
 }
+//function to add node at end
 void end(Node **head_ref, int new_data)
 {
 	Node *new_node = new Node();
@@ -35,12 +40,15 @@ void end(Node **head_ref, int new_data)
 	}
 	last->next= new_node;
 	return;
-	{
-		/* code */
-	}
 }
+//function to transverse a linked list
 void print_list(Node *n)
 {
+	while (n->next != NULL)
+	{
+		cout << n->data << " ";
+		next = next->next;
+	}
 }
 // Program to create a simple linked
 // list with 3 nodes
@@ -111,5 +119,6 @@ anything yet */
 	push_start(&head, 6);
 	push_start(&head, 10);
 	end(&head, 4);
+	print_list(&head);
 	return 0;
 }
