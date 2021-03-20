@@ -8,15 +8,49 @@
 #include <conio.h>
 using namespace std;
 
-/* Link list node */
 class Node
 {
 public:
 	int data;
 	Node *next;
 };
-//function to delete a nodein linked list
-void deletenode(Node **href, int key)
+void print_list(Node *n)
+{
+	while (n->next != NULL)
+	{
+		cout << n->data << " ";
+		next = next->next;
+	}
+}
+void deletepos(Node **head_ref, int pos)
+{
+	if (*head_ref == NULL)
+	{
+		return;
+	}
+	//if position is 0 at start
+	Node *temp = *head_ref;
+	if (pos == 0)
+	{
+		*head_ref = temp->next;
+		free(temp);
+		return;
+	}
+	for (int i = 0; temp != NULL && i < pos - 1; i++)
+	{
+		temp = temp->next;
+	}
+	//if position exceed the linkedlist total nodes
+	if (temp == NULL || temp->next = NULL)
+	{
+		return;
+	}
+	Node *next = temp->next->next;
+	free(temp->next);
+	temp->next = next;
+}
+//function to delete a node in linked list
+void deletenode(Node **head_ref, int key)
 {
 	Node *temp = *head_ref;
 	Node *prev = NULL;
@@ -37,7 +71,7 @@ void deletenode(Node **href, int key)
 		//key is non existent
 		if (temp == NULL)
 		{
-			return
+			return;
 		}
 		prev->next = temp->next;
 		delete temp;
@@ -57,26 +91,17 @@ void deleteList(Node **head_ref)
 		current = next;
 	}
 
-	/* deref head_ref to affect the real head back 
-	in the caller. */
 	*head_ref = NULL;
 }
 
-/* Given a reference (pointer to pointer) to the head 
-of a list and an int, push a new node on the front 
-of the list. */
 void push(Node **head_ref, int new_data)
 {
-	/* allocate node */
-	Node *new_node = new Node();
 
-	/* put in the data */
+	Node *new_node = new Node();
 	new_node->data = new_data;
 
-	/* link the old list off the new node */
 	new_node->next = (*head_ref);
 
-	/* move the head to point to the new node */
 	(*head_ref) = new_node;
 }
 
@@ -93,7 +118,12 @@ int main()
 	push(&head, 1);
 	push(&head, 12);
 	push(&head, 1);
-
+	printlist(&head);
+	cout << "\n";
+	deletenode(&head, 4);
+	cout << "\n";
+	deletepos(&head, 2);
+	cout << "\n";
 	cout << "Deleting linked list";
 	deleteList(&head);
 
