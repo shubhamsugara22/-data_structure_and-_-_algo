@@ -15,12 +15,38 @@ public:
 	int data;
 	Node *next;
 };
-
-/* Function to delete the entire linked list */
+//function to delete a nodein linked list
+void deletenode(Node **href, int key)
+{
+	Node *temp = *head_ref;
+	Node *prev = NULL;
+	//if head node has the key to be delted
+	if (temp != NULL && temp->data == key)
+	{
+		*head_ref = temp->next;
+		delete temp;
+		return;
+	}
+	else
+	{
+		while (temp != NULL && temp->data != key)
+		{
+			prev = temp;
+			temp = temp->next;
+		}
+		//key is non existent
+		if (temp == NULL)
+		{
+			return
+		}
+		prev->next = temp->next;
+		delete temp;
+	}
+}
+//Function to delete the entire linked list
 void deleteList(Node **head_ref)
 {
 
-	/* deref head_ref to get the real head */
 	Node *current = *head_ref;
 	Node *next;
 
