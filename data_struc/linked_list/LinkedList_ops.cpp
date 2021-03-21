@@ -141,6 +141,6 @@ anything yet */
 	insert(head->next, 67)
 		//insert a node after 3rd node (2)--index
 		insert(head->next->next, 78)
-			print_list(&head);
+			print_list(head);
 	return 0;
 }

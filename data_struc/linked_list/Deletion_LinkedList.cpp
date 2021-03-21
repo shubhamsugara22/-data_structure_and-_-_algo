@@ -119,7 +119,7 @@ int main()
 	push(&head, 1);
 	push(&head, 12);
 	push(&head, 1);
-	printlist(&head);
+	printlist(head);
 	cout << "\n";
 	deletenode(&head, 4);
 	cout << "\n";
