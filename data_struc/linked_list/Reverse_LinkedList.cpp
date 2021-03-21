@@ -5,83 +5,59 @@
 using namespace std;
 
 /* Link list node */
-struct Node
+class Node
 {
+public:
 	int data;
-	struct Node *next;
-	Node(int data)
-	{
-		this->data = data;
-		next = NULL;
-	}
+	Node *next;
 };
-
-struct LinkedList
+void printlist(Node *n)
 {
-	Node *head;
-	LinkedList()
+	while (n->data != NULL)
 	{
-		head = NULL;
+		cout << n->data << " ";
+		n = n->next;
 	}
+}
+//Function to reverse the linked list using iterative method
+void reverse(Node **head_ref)
+{
+	// Initialize current, previous and
+	// next pointers
+	Node *current = *head_ref;
+	Node *prev = NULL, *next = NULL;
 
-	/* Function to reverse the linked list */
-	void reverse()
-	{
-		// Initialize current, previous and
-		// next pointers
-		Node *current = head;
-		Node *prev = NULL, *next = NULL;
-
-		while (current != NULL)
-		{
-			// Store next
-			next = current->next;
-
-			// Reverse current node's pointer
-			current->next = prev;
-
-			// Move pointers one position ahead.
-			prev = current;
-			current = next;
-		}
-		head = prev;
+	while (current != NULL)
+	{ // Store next
+		next = current->next;
+		// Reverse current node's pointer
+		current->next = prev;
+		// Move pointers one position ahead.
+		prev = current;
+		current = next;
 	}
+	*head_ref = prev;
+}
 
-	/* Function to print linked list */
-	void print()
-	{
-		struct Node *temp = head;
-		while (temp != NULL)
-		{
-			cout << temp->data << " ";
-			temp = temp->next;
-		}
-	}
+void push(Node **head_ref, int new_data)
+{
+	Node *new_node = new Node();
+	new_node->data = new_data;
 
-	void push(int data)
-	{
-		Node *temp = new Node(data);
-		temp->next = head;
-		head = temp;
-	}
-};
+	new_node->next = (*head_ref);
+	(*head_ref) = new_node;
+}
 
 /* Driver program to test above function*/
 int main()
 {
-	/* Start with the empty list */
-	LinkedList ll;
-	ll.push(20);
-	ll.push(4);
-	ll.push(15);
-	ll.push(85);
-
-	cout << "Given linked list\n";
-	ll.print();
-
-	ll.reverse();
-
+	push(&head, 20);
+	push(&head, 4);
+	push(&head, 15);
+	push(&head, 85);
+	printlist(head);
+	reverse(&head);
 	cout << "\nReversed Linked list \n";
-	ll.print();
+	printlist(head);
 	return 0;
 }
