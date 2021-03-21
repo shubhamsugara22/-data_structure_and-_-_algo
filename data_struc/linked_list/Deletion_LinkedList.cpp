@@ -19,9 +19,10 @@ void print_list(Node *n)
 	while (n->next != NULL)
 	{
 		cout << n->data << " ";
-		next = next->next;
+		n = n->next;
 	}
 }
+//function to delete node using position
 void deletepos(Node **head_ref, int pos)
 {
 	if (*head_ref == NULL)
@@ -82,7 +83,7 @@ void deleteList(Node **head_ref)
 {
 
 	Node *current = *head_ref;
-	Node *next;
+	Node *next = NULL;
 
 	while (current != NULL)
 	{

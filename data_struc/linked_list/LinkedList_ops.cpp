@@ -65,7 +65,7 @@ void print_list(Node *n)
 	while (n->next != NULL)
 	{
 		cout << n->data << " ";
-		next = next->next;
+		n = n->next;
 	}
 }
 // Program to create a simple linked
