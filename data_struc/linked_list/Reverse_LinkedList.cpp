@@ -51,6 +51,7 @@ void push(Node **head_ref, int new_data)
 /* Driver program to test above function*/
 int main()
 {
+	Node *head = NULL;
 	push(&head, 20);
 	push(&head, 4);
 	push(&head, 15);
