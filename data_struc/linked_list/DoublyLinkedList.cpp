@@ -31,10 +31,22 @@ void push(Node **head_ref, int new_data)
     //move the head to new node
     (*head_ref) = new_node
 }
+void printlist(Node *n)
+{
+    while (n != NULL)
+    {
+        cout << n->data << " ";
+        n = n->next;
+    }
+}
 
 /* Driver program to test above functions*/
 int main()
 {
     Node *head = NULL;
     push(&head, 8)
+            cout
+        << "the doubly linkedlist is "
+        << " ";
+    printlist(head);
 }
