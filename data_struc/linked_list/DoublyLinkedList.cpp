@@ -33,12 +33,17 @@ void push(Node **head_ref, int new_data)
 }
 void insertafter(Node *prev_node, int new_data)
 {
+    if (prev_node == NULL)
+    {
+        cout << "the given node cannot be null";
+        return;
+    }
     Node *new_node = new Node();
     new_node->data = new_data;
     new_node->next = prev_node->next;
     prev_node->next = new_node;
     new_node->prev = prev_node;
-    while (new_node->next != NULL)
+    if (new_node->next != NULL)
     {
         new_node->next->prev = new_node;
     }
@@ -59,9 +64,9 @@ int main()
     push(&head, 8);
     push(&head, 4);
     push(&head, 16);
-    push(&head, 6);
-    push(&head, 9);
-    insertafter(head->next->next, 7);
+    push(&head, 5);
+    // push after head +1
+    insertafter(head->next, 7);
 
     cout
         << "the doubly linkedlist is "
