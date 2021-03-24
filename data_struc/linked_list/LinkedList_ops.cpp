@@ -5,7 +5,7 @@
 //   insert node at start
 //   insert a new node after a node
 // 2) transverse a Linked list
-#include <iostream.h>
+#include <iostream>
 #include <conio.h>
 #include <stdio.h>
 using namespace std;
@@ -33,13 +33,15 @@ void end(Node **head_ref, int new_data)
 	new_node->data = new_data;
 	new_node->next = NULL;
 
-	if(*head_ref==NULL{
+	if (*head_ref == NULL)
+	{
 		*head_ref = new_node;
 	}
-	while (last->next!=NULL){
+	while (last->next != NULL)
+	{
 		last = last->next;
 	}
-	last->next= new_node;
+	last->next = new_node;
 	return;
 }
 //insert a new node after a node
@@ -138,9 +140,9 @@ anything yet */
 	push_start(&head, 10);
 	end(&head, 4);
 	//insert a node after 2nd node (1)--index
-	insert(head->next, 67)
-		//insert a node after 3rd node (2)--index
-		insert(head->next->next, 78)
-			print_list(head);
+	insert(head->next, 67);
+	//insert a node after 3rd node (2)--index
+	insert(head->next->next, 78);
+	print_list(head);
 	return 0;
 }
