@@ -13,7 +13,7 @@ public:
 };
 void printlist(Node *n)
 {
-	while (n->data != NULL)
+	while (n != NULL)
 	{
 		cout << n->data << " ";
 		n = n->next;

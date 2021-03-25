@@ -3,7 +3,7 @@
 //1) At a given position
 //2) Of a given data present in LinkedList
 //Delete a Linked list
-#include <iostream.h>
+#include <iostream>
 #include <stdio.h>
 #include <conio.h>
 using namespace std;
@@ -16,13 +16,13 @@ public:
 };
 void print_list(Node *n)
 {
-	while (n->next != NULL)
+	while (n != NULL)
 	{
 		cout << n->data << " ";
 		n = n->next;
 	}
 }
-//function to delete node using position
+//function to delete node using position(start from 0)
 void deletepos(Node **head_ref, int pos)
 {
 	if (*head_ref == NULL)
@@ -42,7 +42,7 @@ void deletepos(Node **head_ref, int pos)
 		temp = temp->next;
 	}
 	//if position exceed the linkedlist total nodes
-	if (temp == NULL || temp->next = NULL)
+	if (temp == NULL || temp->next == NULL)
 	{
 		return;
 	}
@@ -114,16 +114,20 @@ int main()
 
 	/* Use push() to construct below list 
 	1->12->1->4->1 */
-	push(&head, 1);
+	push(&head, 5);
 	push(&head, 4);
-	push(&head, 1);
+	push(&head, 3);
 	push(&head, 12);
 	push(&head, 1);
-	printlist(head);
+	print_list(head);
 	cout << "\n";
 	deletenode(&head, 4);
 	cout << "\n";
-	deletepos(&head, 2);
+	print_list(head);
+	cout << "\n";
+	//postion starting from 0
+	deletepos(&head, 1);
+	print_list(head);
 	cout << "\n";
 	cout << "Deleting linked list";
 	deleteList(&head);

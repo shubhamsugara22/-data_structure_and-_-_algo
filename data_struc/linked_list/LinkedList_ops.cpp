@@ -64,7 +64,7 @@ void insert(Node *prev_node, int new_data)
 //function to transverse a linked list
 void print_list(Node *n)
 {
-	while (n->next != NULL)
+	while (n != NULL)
 	{
 		cout << n->data << " ";
 		n = n->next;
