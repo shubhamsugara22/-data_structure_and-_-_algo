@@ -1,10 +1,13 @@
 //C++ program to demonstrate doubly linked list
 //Operation
 //1)Insertion
-//At the start
-//after a node
-//at the end
-//before a node
+//a)At the start
+//b)after a node
+//c)at the end
+//d)before a node
+//2)Deletion
+//a)delete any node
+//b)delete at a given position
 #include <iostream>
 #include <conio.h>
 #include <stdio.h>
@@ -110,6 +113,54 @@ void insert_before(Node **head_ref, Node *next_node, int new_data)
         (*head_ref) = new_node;
     }
 }
+
+//delete a node
+void del_node(Node **head_ref, Node *del)
+{
+    //check if list is empty
+    if (*head_ref == NULL || del == NULL)
+    {
+        return;
+    }
+    //if head is to be deleted
+    if (*head_ref == del)
+    {
+        *head_ref = del->next;
+    }
+    //if next of deleted is not null
+    if (del->next != NULL)
+    {
+        //change prev of del next node to del prev
+        del->next->prev = del->prev;
+    }
+    // if prev of del is not null
+    if (del->prev != NULL)
+    {
+        //change next of del prev node to del next
+        del->prev->next = del->next;
+    }
+    //deallocate delted ndoe
+    free(del);
+    return;
+}
+//function to delte using position of node
+void del_pos(Node **head_ref, int n)
+{
+    if (*head_ref == NULL || n <= 0)
+    {
+        return;
+    }
+    Node *current = *head_ref;
+    for (int i = 1; current != NULL && i < n; i++)
+    {
+        current = current->next;
+    }
+    if (current == NULL)
+    {
+        return;
+    }
+    del_node(head_ref, current);
+}
 void printlist(Node *n)
 {
     while (n != NULL)
@@ -135,6 +186,15 @@ int main()
     cout
         << "the doubly linkedlist is "
         << " ";
+    printlist(head);
+
+    del_node(&head, head->next);
+    del_node(&head, head->next->next);
+    cout << "list after deletion"
+         << " ";
+    printlist(head);
+    del_pos(&head, 2);
+    cout << "\n";
     printlist(head);
     return 0;
 }
