@@ -11,7 +11,7 @@ public:
     int data;
     Node *next;
 };
-//add a new at front
+//add a new  node at front
 void push(Node **head_ref, int new_data)
 {
     Node *new_node = new Node();
