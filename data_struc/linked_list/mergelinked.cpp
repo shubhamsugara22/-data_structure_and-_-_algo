@@ -10,9 +10,21 @@ public:
     Node *next;
 };
 
-/* pull off the front node of 
-the source and put it in dest */
-void MoveNode(Node **destRef, Node **sourceRef);
+void MoveNode(Node **destRef, Node **sourceRef)
+{
+    /* the front source node */
+    Node *newNode = *sourceRef;
+    assert(newNode != NULL);
+
+    /* Advance the source pointer */
+    *sourceRef = newNode->next;
+
+    /* Link the old dest off the new node */
+    newNode->next = *destRef;
+
+    /* Move dest to point to the new node */
+    *destRef = newNode;
+}
 
 /* Takes two lists sorted in increasing 
 order, and splices their nodes together 
@@ -66,21 +78,6 @@ dest == {1, 2, 3}
 Affter calling MoveNode(): 
 source == {2, 3} 
 dest == {1, 1, 2, 3} */
-void MoveNode(Node **destRef, Node **sourceRef)
-{
-    /* the front source node */
-    Node *newNode = *sourceRef;
-    assert(newNode != NULL);
-
-    /* Advance the source pointer */
-    *sourceRef = newNode->next;
-
-    /* Link the old dest off the new node */
-    newNode->next = *destRef;
-
-    /* Move dest to point to the new node */
-    *destRef = newNode;
-}
 
 /* Function to insert a node at 
 the beginging of the linked list */
