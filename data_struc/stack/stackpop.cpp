@@ -1,13 +1,15 @@
-#include <iostream.h>
+#include <iostream>
 #include <conio.h>
+#include <stdlib.h>
 #include <process.h>
+#include <stdio.h>
+using namespace std;
 int pop(int[], int &);
 int push(int[], int &, int);
 void display(int[], int);
 const int size = 50;
 int main()
 {
-    clrscr();
     int stack[size], item, top = -1, res;
     char ch = 'y';
     while (ch == 'y' || ch == 'Y')
