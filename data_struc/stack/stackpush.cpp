@@ -1,11 +1,11 @@
-#include <iostream.h>
+#include <iostream>
 #include <conio.h>
+using namespace std;
 int push();
 void diplay();
 const int size = 50;
 int main()
 {
-    clrscr();
     int stack[size], item, top = -1, res;
     char ch = 'y';
     while (ch == 'y' || ch == 'Y')
